@@ -9,6 +9,7 @@ class Program
     
         public delegate double MyDelegate(double a , double b);
 
+        
 
 
         static void Main(string[] args)
