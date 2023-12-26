@@ -1,65 +1,79 @@
-﻿using System;
+﻿using ConsoleApp16;
+using System;
 
 class Program
 {
-    delegate bool CheckRectangleDelegate(int width, int height);
 
-    static void Main()
+    public class Person
     {
+    
+        public delegate double MyDelegate(double a , double b);
 
 
-        CheckRectangleDelegate checkRectangle = ShaklTekshir;
-        Action<double, double> action = YuziniTop;
 
-        action += Perimetr;
+        static void Main(string[] args)
+        {
+
+            MyReally myReally = new MyReally();
+
+
+
+
+            MyDelegate my = new MyDelegate(myReally.Add);
+            MyDelegate my2 = new MyDelegate(myReally.Substract);
+            MyDelegate my3 = new MyDelegate(myReally.Divide);
+            MyDelegate my4 = new MyDelegate(myReally.Square);
+
+
+
+            MyDelegate test = my;
+            MyDelegate test1 = my2;
+            MyDelegate test2 = my3;
+            MyDelegate test3 = my4;
+
+            double value = my.Invoke(10, 5);
+            double value2 = my2.Invoke(10, 5);
+            double value3 = my3.Invoke(10, 5);
+            double value4 = my4.Invoke(10, 5);
+
+            Console.WriteLine(value);
+            Console.WriteLine(value2);
+            Console.WriteLine(value3);
+            Console.WriteLine(value4);
+
+           
+
+          
+            
+
+
+           /* static void Sulton(string a, MyDelegate b)
+            {
+                *//*b.Invoke(12, 33);*//*
+                MethodA(11,22);
+                
+            }*/
+
+
+
+
+           /* static  void MethodA(int a , int b)
+        {
+            Console.WriteLine(a+b);
+        }*/
+
         
 
-        int width = 5;
-        int height = 5;
-        
-        action(width, height);
-
-        if (checkRectangle(width, height))
-        {
-            Console.WriteLine("To'rt burchak");
-
-            Perimetr(width, height);
-            YuziniTop(width, height);
-
-
-
-        }
-        else
-        {
-            Console.WriteLine("To'rt burchak emas");
-        }
-
-
-
-
-
-    }
-
-    static bool ShaklTekshir(int width, int height)
-    {
-        return width == height;
-    }
-
-    static void Perimetr(double x, double y)
-    {
-        double perimetr = x * y;
-        Console.WriteLine($" Perimetr : {perimetr}");
-    }
-
-    static void YuziniTop(double x, double y)
-    {
-        double yuzini = 2*(x*y);
-        Console.WriteLine($" Yuzasi : {yuzini}");
     }
 
 
 
 
 
+}
 
+
+
+
+    
 }
