@@ -7,6 +7,7 @@ class Program
     static void Main()
     {
 
+        
 
         CheckRectangleDelegate checkRectangle = ShaklTekshir;
         Action<double, double> action = YuziniTop;
